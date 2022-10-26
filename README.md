@@ -25,6 +25,7 @@ FROM lipanski/docker-static-website:latest
 COPY . .
 
 CMD ["/busybox", "httpd", "-f", "-v", "-p", "8080", "-c", "httpd.conf", "./index.html"]
+
 NOTE: Sending a TERM signal to your TTY running the container won't get propagated due to how busybox is built. Instead you can call docker stop (or docker kill if can't wait 15 seconds). Alternatively you can run the container with docker run -it --rm --init which will propagate signals to the process correctly.
 
 FAQ
@@ -46,7 +47,10 @@ A:127.0.0.1       # Allow local loopback connections
 D:*               # Deny from other IP connections
 
 References
-https://github.com/lipanski/docker-static-website#readme
-https://lipanski.com/posts/smallest-docker-image-static-website
-https://mailchimp.com/en-gb/features/website-builder/?gclid=Cj0KCQjwteOaBhDuARIsADBqRehMQUpMWo0J2SBFfW5JXyG7trUCliGcglKC2g4mv8r2AQOp5hjMSEAaAmhWEALw_wcB&gclsrc=aw.ds
-https://www.youtube.com/watch?v=4pRo6Ud1JI8
+- https://github.com/lipanski/docker-static-website#readme
+
+- https://lipanski.com/posts/smallest-docker-image-static-website
+
+- https://mailchimp.com/en-gb/features/website-builder/?gclid=Cj0KCQjwteOaBhDuARIsADBqRehMQUpMWo0J2SBFfW5JXyG7trUCliGcglKC2g4mv8r2AQOp5hjMSEAaAmhWEALw_wcB&gclsrc=aw.ds
+
+- https://www.youtube.com/watch?v=4pRo6Ud1JI8
