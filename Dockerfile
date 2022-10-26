@@ -13,6 +13,10 @@ WORKDIR /busybox
 # Copy the busybox build config (limited to httpd)
 COPY .config .
 
+#Download and unzip CA1
+RUN wget https://github.com/dvsdodo/CA1/archive/main.zip
+RUN unzip main.zip
+
 # Compile and install busybox
 RUN make && make install
 
