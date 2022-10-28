@@ -21,6 +21,13 @@ If you need to configure the server in a different way, you can override the CMD
 
 FROM lipanski/docker-static-website:latest
 
+# download CA1 files
+
+RUN wget https://github.com/dvsdodo/CA1/archive/main.tar.gz \
+  && tar xf main.tar.gz \
+  && rm main.tar.gz \
+  && mv /CA1-main /home/static
+
 # Copy your static files
 COPY . .
 
